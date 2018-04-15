@@ -1,10 +1,5 @@
 class Map{
   ArrayList <City> cities = new ArrayList<City>();
-  String[] nameCity = {
-    "Oredea","Zerind","Arad","Timisoara","Lugoj","Mehadia","Dobreta",
-    "Sibu","Rimnicu Vilcea","Craiova","Fagaras","Pitesti","Bucharest",
-    "Giurgiu","Urziceni","Neamt","Iasi","Vaslui","Hirsova","Eforie"
-  };
 
   Map(){
     for (int i = 0;i < nameCity.length; i++)

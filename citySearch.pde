@@ -2,7 +2,15 @@ Map m;
 City c;
 ArrayList<City> r = null;
 ArrayList<City> cities = null;
+View v;
 PImage mapImage;
+
+String[] nameCity = {
+  "Oredea","Zerind","Arad","Timisoara","Lugoj","Mehadia","Dobreta",
+  "Sibu","Rimnicu Vilcea","Craiova","Fagaras","Pitesti","Bucharest",
+  "Giurgiu","Urziceni","Neamt","Iasi","Vaslui","Hirsova","Eforie"
+};
+
 void setup(){
     size(840, 500);
     m = new Map();
@@ -10,6 +18,8 @@ void setup(){
     cities = m.getCities();
     r = cities.get(15).findShortRoute("Craiova",cities.get(15));
     println(">> " + showArrayString(r));
+    v = new View(this,cities);
+
 }
 void draw() {
   background(0);
