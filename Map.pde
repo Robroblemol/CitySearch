@@ -11,7 +11,6 @@ class Map{
         }
       }
       //agregamos los caminos
-
     cities.get(0).addNextNode(cities.get(7));//Sibus
     cities.get(0).addNextNode(cities.get(1));//Zerind
 

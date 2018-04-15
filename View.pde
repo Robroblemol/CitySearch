@@ -1,6 +1,5 @@
 import g4p_controls.*;//importamos libreria
 
-
 GButton btnCalculate;
 GDropList selecTarget;
 GDropList selecOrigin;
@@ -26,7 +25,6 @@ class View implements Model.Iview {
 
     this.cities = cities;
     this.citySearch = citySearch;
-    //surface.setTitle(m.getTitleApp());
     btnCalculate = new GButton (citySearch,270,100,100,35,msg.btnCalculate);
     btnCalculate.fireAllEvents(true);
 
@@ -41,8 +39,6 @@ class View implements Model.Iview {
 
   @Override
   void getData() {
-  //  println("origen: "+selecOrigin.getSelectedText()+
-  //  " target: "+getCityforName(selecTarget.getSelectedText()).getName());
      presenter.calculateRoute(selecOrigin.getSelectedText(),
                getCityforName(selecTarget.getSelectedText()));
   }
@@ -50,7 +46,6 @@ class View implements Model.Iview {
   City getCityforName(String c){
     City cc = null;
     for(int i = 0;i < cities.size(); i++){
-      //println("nameCity: "+cities.get(i).getName()+" c: "+c);
       if(cities.get(i).getName().equals(c)){
         println("macth");
         cc = cities.get(i);
