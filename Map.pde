@@ -1,10 +1,10 @@
 class Map{
   ArrayList <City> cities = new ArrayList<City>();
-
+  Message msg = new Message();
   Map(){
-    for (int i = 0;i < nameCity.length; i++)
+    for (int i = 0;i < msg.nameCity.length; i++)
       {try
-        {cities.add (new City(nameCity[i]));
+        {cities.add (new City(msg.nameCity[i]));
         }
         catch (Exception e){
           println(">>"+e);

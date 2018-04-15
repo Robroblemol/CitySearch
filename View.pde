@@ -14,11 +14,15 @@ class View implements Model.Iview {
 
   Message msg = new Message();
 
+  PImage mapImage;
+
 
   View(citySearch citySearch,ArrayList<City> cities){
     G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
     G4P.setCursor(ARROW);
     surface.setTitle(msg.titleApp);
+
+    mapImage = loadImage("mapBucharest.png");
 
     this.cities = cities;
     this.citySearch = citySearch;
@@ -27,10 +31,10 @@ class View implements Model.Iview {
     btnCalculate.fireAllEvents(true);
 
     selecOrigin = new GDropList(citySearch,270,50 , 120, 90, 5);
-    selecOrigin.setItems(nameCity,0);
+    selecOrigin.setItems(msg.nameCity,0);
     selecOrigin.tag = msg.selecOrigin;
     selecTarget = new GDropList(citySearch,270,70 , 120, 90, 5);
-    selecTarget.setItems(nameCity,0);
+    selecTarget.setItems(msg.nameCity,0);
     selecTarget.tag = msg.selecTarget;
 
   }
@@ -60,9 +64,13 @@ class View implements Model.Iview {
     }
   @Override
     void txtResult() {
+      image(mapImage,0,0);
       fill(0);
       textSize(14);
-      text("Ruta: "+ r,210, 35);
+      text(msg.route+ r,210, 35);
+      text(msg.selecOrigin,210, 62);
+      text(msg.selecTarget,210, 82);
+      text(msg.integrantes,10, 492);
     }
 }
 public void handleButtonEvents(GButton button, GEvent event) {
