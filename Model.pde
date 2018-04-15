@@ -1,6 +1,7 @@
 interface Model{
   interface Ipresenter{
-    ArrayList<City> calculateRoute(String d,City c);
+    void calculateRoute(String d,City c);
+    String showArrayString(ArrayList<City> a);
   }
   interface Iview{
     void getData ();

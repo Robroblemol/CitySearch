@@ -7,16 +7,16 @@ GDropList selecOrigin;
 
 class View implements Model.Iview {
 
-  private Presenter presenter = new Presenter();
+  private Presenter presenter = new Presenter(this);
   private ArrayList<City> cities = null;
-  private String r = "";
+  private String r = "Null";
   private citySearch citySearch = null;
 
   Message msg = new Message();
 
 
   View(citySearch citySearch,ArrayList<City> cities){
-    G4P.setGlobalColorScheme(GCScheme.RED_SCHEME);
+    G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
     G4P.setCursor(ARROW);
     surface.setTitle(msg.titleApp);
 
@@ -26,10 +26,10 @@ class View implements Model.Iview {
     btnCalculate = new GButton (citySearch,270,100,100,35,msg.btnCalculate);
     btnCalculate.fireAllEvents(true);
 
-    selecOrigin = new GDropList(citySearch,270,50 , 80, 90, 4);
+    selecOrigin = new GDropList(citySearch,270,50 , 120, 90, 5);
     selecOrigin.setItems(nameCity,0);
     selecOrigin.tag = msg.selecOrigin;
-    selecTarget = new GDropList(citySearch,270,20 , 80, 90, 4);
+    selecTarget = new GDropList(citySearch,270,70 , 120, 90, 5);
     selecTarget.setItems(nameCity,0);
     selecTarget.tag = msg.selecTarget;
 
@@ -37,10 +37,10 @@ class View implements Model.Iview {
 
   @Override
   void getData() {
-    println("origen: "+selecOrigin.getSelectedText()+
-    " target: "+getCityforName(selecTarget.getSelectedText()).getName());
-    // presenter.calculateRoute(txfCOrigin.getText(),
-    //           getCityforName(txfCTarger.getText()));
+  //  println("origen: "+selecOrigin.getSelectedText()+
+  //  " target: "+getCityforName(selecTarget.getSelectedText()).getName());
+     presenter.calculateRoute(selecOrigin.getSelectedText(),
+               getCityforName(selecTarget.getSelectedText()));
   }
   @Override
   City getCityforName(String c){
@@ -60,9 +60,9 @@ class View implements Model.Iview {
     }
   @Override
     void txtResult() {
-      fill(255);
-      textSize(25);
-      text(r,250, 50);
+      fill(0);
+      textSize(14);
+      text("Ruta: "+ r,210, 35);
     }
 }
 public void handleButtonEvents(GButton button, GEvent event) {

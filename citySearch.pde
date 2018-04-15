@@ -16,14 +16,15 @@ void setup(){
     m = new Map();
     mapImage = loadImage("mapBucharest.png");
     cities = m.getCities();
-    r = cities.get(15).findShortRoute("Craiova",cities.get(15));
-    println(">> " + showArrayString(r));
+    //r = cities.get(15).findShortRoute("Craiova",cities.get(15));
+    //println(">> " + showArrayString(r));
     v = new View(this,cities);
 
 }
 void draw() {
   background(0);
   image(mapImage,0,0);
+  v.txtResult();
 
 }
 String showArrayString (ArrayList<City> a){
