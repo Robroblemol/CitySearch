@@ -3,8 +3,9 @@ class Map{
   Message msg = new Message();
   Map(){
     for (int i = 0;i < msg.nameCity.length; i++)
-      {try
-        {cities.add (new City(msg.nameCity[i]));
+      {
+        try{
+          cities.add (new City(msg.nameCity[i]));
         }
         catch (Exception e){
           println(">>"+e);
@@ -65,6 +66,7 @@ class Map{
 
     cities.get(15).addNextNode(cities.get(16));
 
+    cities.get(16).addNextNode(cities.get(15));
     cities.get(16).addNextNode(cities.get(17));
 
     cities.get(17).addNextNode(cities.get(16));
